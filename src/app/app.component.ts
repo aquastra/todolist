@@ -36,10 +36,14 @@ export class AppComponent {
   checkAuthState(){
     this.angFireAuth.authState.subscribe( (user) => {
       if(user){
+        this.user = user;
+        this.router.navigate(['']);
 
       }
       else{
-        
+        this.user = null;
+        this.router.navigate(['/login']);
+
       }
     });
 
