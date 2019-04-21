@@ -6,7 +6,6 @@ import { StatusBar } from '@ionic-native/status-bar/ngx';
 
 import { AngularFireAuth } from '@angular/fire/auth';
 import { Router } from '@angular/router';
-import { TabsPage } from './tabs/tabs.page';
 
 @Component({
   selector: 'app-root',

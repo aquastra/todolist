@@ -31,4 +31,5 @@ export class AuthService {
       .catch ( error => { reject (error)} )
     });
   }
+  
 }
