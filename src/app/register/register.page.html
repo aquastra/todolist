@@ -5,5 +5,28 @@
 </ion-header>
 
 <ion-content>
+  <form id="register" [formGroup]="registerForm" (submit)="register(registerForm.value)">
+    <ion-list>
+      <ion-item>
+        <ion-label>Email:</ion-label>
+        <ion-input type="email" aria-placeholder="example@example.com" formControlName="email"></ion-input>
+      </ion-item>
+    
+      <ion-item>
+        <ion-label>Password:</ion-label>
+        <ion-input type="password" aria-placeholder="minimum 6 characters" formControlName="password"></ion-input>
+      </ion-item>
+    
+    </ion-list>
+    
+    <ion-button type="submit" [disabled]="!registerForm.valid">REGISTER</ion-button>
+  </form>
+
+  <br>
+  <ion-item>
+    <ion-label>
+      Already have an account? &emsp; <a routerLink="/login">LOGIN</a>
+    </ion-label>
+  </ion-item>
 
 </ion-content>
