@@ -6,4 +6,30 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content></ion-content>
+<ion-content>
+
+  <ion-list>
+
+    <ion-item-sliding *ngFor="let item of todos">
+      <ion-item lines="inset" button [routerLink]="['/details', item.id]">
+        <ion-label>
+          {{item.task}}
+          <p>{{ item.createdAt | date:'short' }}</p>
+        </ion-label>
+      </ion-item>
+
+      <ion-item-options side="end">
+        <ion-item-option (click)="delete(item)">
+          DELETE
+          <ion-icon name="trash" slot="end"></ion-icon>
+        </ion-item-option>
+      </ion-item-options>
+
+    </ion-item-sliding>
+  </ion-list>
+
+  <ion-item lines="none">
+    <ion-button expand="block" routerLink="/details" routerDirection="forward">ADD</ion-button>
+  </ion-item>
+
+</ion-content>
