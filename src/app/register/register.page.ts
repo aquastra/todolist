@@ -29,7 +29,6 @@ export class RegisterPage implements OnInit {
     this.authService.register( formData.email, formData.password)
     .then( (response) => {
       //succesful
-      location.reload();
       this.router.navigate(['']);
     })
     .catch ( (error) => {
