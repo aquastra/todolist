@@ -7,14 +7,14 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
   <ion-list line="full">
     <ion-item>
       <ion-input required type="text" placeholder="Task" [(ngModel)]="todo.task"></ion-input>
     </ion-item>
   </ion-list>
-  <ion-item>
-    <ion-button expand="block" (click)="saveTodo()">SAVE</ion-button>
-  </ion-item>
+  
+  <ion-button expand="block" (click)="saveTodo()">SAVE</ion-button>
+  
 
 </ion-content>

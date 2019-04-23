@@ -18,9 +18,10 @@ export class AuthService {
   private todos: Observable<Todo[]>;
 
   constructor(private angfireAuth:AngularFireAuth,
-    private db:AngularFirestore) { 
-
-      this.todoCollection = db.collection<Todo>('todos');
+    private db:AngularFirestore
+    ) { 
+      
+      this.todoCollection = db.collection<Todo>(angfireAuth.auth.currentUser.email);
 
       this.todos = this.todoCollection.snapshotChanges().pipe(
         map(actions => {
@@ -31,6 +32,10 @@ export class AuthService {
           })
         })
       );
+    }
+
+    getUserId(){
+      return this.angfireAuth.auth.currentUser.email;
     }
 
     getTodos(){

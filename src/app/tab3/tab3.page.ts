@@ -14,7 +14,10 @@ export class Tab3Page implements OnInit{
     private router:Router
     ) { }
 
+  userName: string;
+  
   ngOnInit() {
+    this.userName = this.authService.getUserId().toString();
   }
 
   logout(){

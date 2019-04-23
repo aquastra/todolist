@@ -6,7 +6,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
+<ion-content padding>
 
   <ion-list>
 
@@ -19,7 +19,7 @@
       </ion-item>
 
       <ion-item-options side="end">
-        <ion-item-option (click)="delete(item)">
+        <ion-item-option (click)="delete(item)" color="danger">
           DELETE
           <ion-icon name="trash" slot="end"></ion-icon>
         </ion-item-option>
@@ -28,8 +28,8 @@
     </ion-item-sliding>
   </ion-list>
 
-  <ion-item lines="none">
-    <ion-button expand="block" routerLink="/details" routerDirection="forward">ADD</ion-button>
-  </ion-item>
+  
+  <ion-button expand="block" routerLink="/details" routerDirection="forward">ADD</ion-button>
+  
 
 </ion-content>
