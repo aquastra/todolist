@@ -14,6 +14,7 @@ import { AngularFireAuthModule } from '@angular/fire/auth';
 import { environment } from '../environments/environment';
 import { AngularFirestoreModule, FirestoreSettingsToken } from 'angularfire2/firestore';
 
+
 @NgModule({
   declarations: [AppComponent],
   entryComponents: [],

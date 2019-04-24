@@ -18,10 +18,12 @@ export class AuthService {
   private todos: Observable<Todo[]>;
 
   constructor(private angfireAuth:AngularFireAuth,
-    private db:AngularFirestore
+    private db:AngularFirestore,
     ) { 
-      
-      this.todoCollection = db.collection<Todo>(angfireAuth.auth.currentUser.email);
+      let user = this.angfireAuth.auth.currentUser;
+      if(user){
+      this.todoCollection = db.collection<Todo>(user.email.toString());
+      //this.todoCollection = db.collection<Todo>(angfireAuth.auth.currentUser.email); no longer works
 
       this.todos = this.todoCollection.snapshotChanges().pipe(
         map(actions => {
@@ -32,6 +34,13 @@ export class AuthService {
           })
         })
       );
+      }
+      else{
+        //not signed in
+        
+      }
+
+      
     }
 
     getUserId(){

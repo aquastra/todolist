@@ -22,8 +22,9 @@ export class AppComponent {
     private angFireAuth: AngularFireAuth,
     private router: Router
   ) {
-    this.initializeApp();
     this.checkAuthState();
+    this.initializeApp();
+    
   }
 
   initializeApp() {
