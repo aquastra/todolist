@@ -19,15 +19,22 @@
 
   <ion-list>
 
-    <ion-item-sliding *ngFor="let item of todos">
-      <ion-item lines="inset" button [routerLink]="['/details', item.id]">
+    <ion-item-sliding *ngFor="let item of todos" [class.done]="item.status">
+      <ion-item lines="inset">
         <ion-label>
           {{item.task}}
           <p>{{ item.createdAt | date:'short' }}</p>
-        </ion-label>
+        </ion-label> 
+        <ion-checkbox slot="start" [checked]="item.status" (click)="changeStatus(item)"></ion-checkbox>
       </ion-item>
 
-      <ion-item-options side="end">
+      <ion-item-options side="start">
+          <ion-item-option (click)="goEdit(item)" color="success">
+            EDIT
+          </ion-item-option>
+        </ion-item-options>
+
+      <ion-item-options side="end" >
         <ion-item-option (click)="delete(item)" color="danger">
           DELETE
           <ion-icon name="trash" slot="end"></ion-icon>
